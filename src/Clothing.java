@@ -42,4 +42,9 @@ public class Clothing {
     public void setSize(String newSize) {
         this.size = newSize;
     }
+
+    @Override
+    public String toString() {
+        return getDescription() + ", " + getSize() + ", $" + getPrice();
+    }
 }

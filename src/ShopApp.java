@@ -17,7 +17,7 @@ public class ShopApp {
         System.out.println("Customer is: " + c1.getName() + ", " + "Size: " + c1.getSize() +  ", Total in $$: " + c1.getTotalClothingCoast());
         System.out.println("Items List: ");
         for (Clothing item: items) {
-            System.out.println("Item " + ": " + item.getDescription() + ", $" + item.getPrice() + ", " + item.getSize());
+            System.out.println("Item " + ": " + item);
         }
 
         int average = 0;
