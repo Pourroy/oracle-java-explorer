@@ -1,5 +1,12 @@
+import java.lang.module.Configuration;
 import java.util.Arrays;
 import io.helidon.webserver.Routing;
+import io.helidon.webserver.ServerConfiguration;
+import io.helidon.webserver.WebServer;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 public class ShopApp {
 
@@ -10,8 +17,22 @@ public class ShopApp {
 
         Clothing item1 = new Clothing("Blue Jacket",20.9, "M");
         Clothing item2 = new Clothing("Orange T-Shirt", 10.5, "S");
+        Clothing item3 = new Clothing("Blue T-Shirt", 10.5, "S");
+        Clothing item4 = new Clothing("Green Scart", 5.0, "S");
+        Clothing[] items = {item1, item2, item3, item4};
 
-        Clothing[] items = {item1, item2, new Clothing("Green Scart", 5.0, "S"), new Clothing("Blue T-Shirt", 10.5, "S")};
+        try {
+            ItemList list = new ItemList(items);
+            Routing routing = Routing.builder().get("/items", list).build();
+            ServerConfiguration configuration = ServerConfiguration.builder()
+                    .bindAddress(InetAddress.getLocalHost())
+                    .port(8888).build();
+            WebServer webServer = WebServer.create(configuration, routing);
+            webServer.start();
+        } catch (UnknownHostException exception) {
+            exception.printStackTrace();
+        }
+
 
         c1.addItems(items);
 
