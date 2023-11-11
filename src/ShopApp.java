@@ -1,4 +1,5 @@
 import java.sql.SQLOutput;
+import java.util.Arrays;
 
 public class ShopApp {
 
@@ -35,6 +36,12 @@ public class ShopApp {
         } catch(ArithmeticException e) {
             System.out.println("Please, don't divide by zero!");
         }
+        Arrays.sort(c1.getItems()); // sort by alphabetical order
+
+        for (Clothing item: c1.getItems()) {
+            System.out.println("Item " + ": " + item);
+        }
+
         System.out.println("Thanks for visit our Shop"); // line will be executed independet of exeptions rises
     }
 }
