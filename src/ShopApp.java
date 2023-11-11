@@ -4,7 +4,7 @@ public class ShopApp {
 
     public static void main(String[] args) {
         System.out.println("Welcome tho the Gansinho Vizinho Store");
-        Customer c1 = new Customer("Pinky", 14);
+        Customer c1 = new PremiumCustomer("Pinky", 14);
         System.out.println("Min price " + Clothing.MIN_PRICE);
 
         Clothing item1 = new Clothing("Blue Jacket",20.9, "M");
